@@ -20,14 +20,14 @@ export const Layout = () => {
             </div>
 
 
-            <main role="main">
+            <main role="main" className="mb-5">
                 <Outlet />
             </main>
 
             <footer className="text-muted bg-dark fixed-bottom">
                 <div className="container text-white ">
-                    <div className="p-3">
-                        <p>Made  By  <a href="https://edgardoalvarez.com">Edgardo Alvarez</a>.
+                    <div className="pt-3">
+                        <p>Made  By  <a href="https://edgardoalvarez.com">Edgardo Alvarez</a>. Copyright © 2023
                         </p>
                     </div>
                 </div>

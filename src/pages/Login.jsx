@@ -1,4 +1,22 @@
+import { useState } from "react"
+import { loginHandler } from "../helpers/login";
+
 export const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("")
+
+    const onEmailChange = ({ target }) => {
+        setEmail(target.value)
+    }
+    const onPasswordChange = ({ target }) => {
+        setPassword(target.value)
+    }
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        loginHandler({ email, password });
+    }
+
     return (
         <>
             <section>
@@ -7,15 +25,15 @@ export const Login = () => {
                         <div className="col-md-8 col-lg-5 col-center m-4">
                             <h1>Login</h1>
                             <hr />
-                            <form >
+                            <form onSubmit={onSubmit}>
                                 <div className="mb-3">
-                                    <label for="InputEmail" className="form-label">Email address</label>
-                                    <input type="text" className="form-control" />
+                                    <label className="form-label">Email address</label>
+                                    <input type="text" className="form-control" onChange={onEmailChange} name="email" />
 
                                 </div>
                                 <div className="mb-3">
-                                    <label for="InputPassword" className="form-label">Password</label>
-                                    <input type="password" className="form-control" />
+                                    <label className="form-label">Password</label>
+                                    <input type="password" className="form-control" onChange={onPasswordChange} name="password" />
 
                                 </div>
 
