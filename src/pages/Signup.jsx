@@ -11,23 +11,23 @@ export const Signup = () => {
                             <hr />
                             <form >
                                 <div className="mb-3">
-                                    <label for="InputName" className="form-label">Name</label>
+                                    <label className="form-label">Name</label>
                                     <input type="text" className="form-control" />
 
                                 </div>
 
 
                                 <div className="mb-3">
-                                    <label for="InputEmail" className="form-label">Email address</label>
+                                    <label className="form-label">Email address</label>
                                     <input type="text" className="form-control" />
 
                                 </div>
                                 <div className="mb-3">
-                                    <label for="InputPassword" className="form-label">Password</label>
+                                    <label className="form-label">Password</label>
                                     <input type="password" className="form-control" />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="InputConfirmPassword" className="form-label">Confirm Password</label>
+                                    <label className="form-label">Confirm Password</label>
                                     <input type="password" className="form-control" />
                                 </div>
 

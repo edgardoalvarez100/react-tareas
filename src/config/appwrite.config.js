@@ -37,3 +37,12 @@ export const register = async (email, password) => {
     throw new Error(error.message);
   }
 };
+
+export const logueadoHandler = async () => {
+  try {
+    const account = new Account(appwriteClient);
+    return await account.get();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
