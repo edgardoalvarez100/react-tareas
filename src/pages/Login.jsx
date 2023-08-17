@@ -1,9 +1,11 @@
 import { useState } from "react"
-import { loginHandler } from "../helpers/login";
+import { useAuth } from "../hooks/useAuth";
+
 
 export const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
+    const { user, login } = useAuth({ email, password })
 
     const onEmailChange = ({ target }) => {
         setEmail(target.value)
@@ -14,7 +16,8 @@ export const Login = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        loginHandler({ email, password });
+        const account = login({ email, password });
+        console.log(account)
     }
 
     return (

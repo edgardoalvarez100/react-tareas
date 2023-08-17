@@ -1,23 +1,33 @@
 import { useEffect, useState } from "react"; // import useEffect
-import { logueadoHandler } from "../config/appwrite.config";
+import { Account } from "appwrite";
+import { appwriteClient } from "../config/appwrite.config";
 
-const useAuth = ({ email, password, username }) => {
-  const [user, setUser] = useState(null);
+export const useAuth = ({ email, password, username }) => {
+  const [user, setUser] = useState();
 
   const signup = async (email, password, username) => {
     // signup code
   };
 
   const login = async (email, password) => {
-    // login code
+    try {
+      const appwriteAccount = new Account(appwriteClient);
+      return await appwriteAccount.createEmailSession(email, password);
+    } catch (error) {
+      throw new Error(error.message);
+    }
   };
-
-  const getCurrentUser = async () => {
-    return await logueadoHandler();
+  const userLogued = async () => {
+    try {
+      const account = new Account(appwriteClient);
+      return await account.get();
+    } catch (error) {
+      throw new Error(error.message);
+    }
   };
 
   const fetchUser = async () => {
-    const userDetails = await getCurrentUser();
+    const userDetails = await userLogued();
     setUser(userDetails);
   };
 
@@ -30,8 +40,5 @@ const useAuth = ({ email, password, username }) => {
     signup,
     login,
     user,
-    getCurrentUser, // return it
   };
 };
-
-export default useAuth;

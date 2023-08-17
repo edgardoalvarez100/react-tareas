@@ -1,8 +1,8 @@
 import { Account, Client, Databases } from "appwrite";
 
-const appwriteClient = new Client();
+const cliente = new Client();
 
-appwriteClient
+export const appwriteClient = cliente
   .setEndpoint(import.meta.env.VITE_APPWRITE_URL) // Your API Endpoint
   .setProject(import.meta.env.VITE_PROJECT_ID); // Your project ID
 
