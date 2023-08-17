@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"; // import useEffect
 import { logueadoHandler } from "../config/appwrite.config";
 
-const useAuth = () => {
+const useAuth = ({ email, password, username }) => {
   const [user, setUser] = useState(null);
 
   const signup = async (email, password, username) => {
@@ -16,12 +16,13 @@ const useAuth = () => {
     return await logueadoHandler();
   };
 
+  const fetchUser = async () => {
+    const userDetails = await getCurrentUser();
+    setUser(userDetails);
+  };
+
   // fetching the logged user data
   useEffect(() => {
-    const fetchUser = async () => {
-      const userDetails = await getCurrentUser();
-      setUser(userDetails);
-    };
     fetchUser();
   }, []);
 
