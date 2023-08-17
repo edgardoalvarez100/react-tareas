@@ -13,7 +13,9 @@ export const Layout = () => {
 
 
                         </nav>
-                        <Link to="/signup" className="btn btn-outline-primary">Sign up</Link>
+                        <Link to="/signup" className="btn btn-outline-primary me-2">Sign up</Link>
+                        <Link to="/login" className="btn btn-outline-primary me-2">Login</Link>
+                        <Link to="/logout" className="btn btn-outline-primary">Logout</Link>
                     </div>
 
                 </div>

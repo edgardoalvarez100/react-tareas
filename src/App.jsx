@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Login, Layout, Nopage, Home, Signup, Tarea } from './pages';
+import { Login, Layout, Nopage, Home, Signup, Tarea, Logout } from './pages';
 
 
 
@@ -18,6 +18,7 @@ function App() {
             <Route index element={<Home />} />
 
             <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
 
             <Route path="/tareas" element={<Tarea />} />
             <Route path="/signup" element={<Signup />} />

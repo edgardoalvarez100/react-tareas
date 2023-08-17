@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 
@@ -14,10 +15,11 @@ export const Login = () => {
         setPassword(target.value)
     }
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
-        const account = login({ email, password });
-        console.log(account)
+        const account = await login(email, password);
+        const navigate = useNavigate();
+        navigate("/tarea");
     }
 
     return (
