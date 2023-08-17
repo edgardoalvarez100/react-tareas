@@ -17,7 +17,7 @@ export const Login = () => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        const account = await login(email, password);
+        await login(email, password);
         const navigate = useNavigate();
         navigate("/tarea");
     }
